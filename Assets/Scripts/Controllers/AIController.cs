@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum eType {
-	BASIC_ENEMY
+	BASIC_ENEMY,
+	TURTLE_ENEMY
 }
 
 /// <summary>
@@ -21,6 +22,7 @@ public class AIController : MonoBehaviour {
 
 	//Enemy Type UI Prefabs
 	public GameObject basicEnemyPrefab = null;
+	public GameObject turtleEnemyPrefab = null;
 
     /// <summary>
     /// Allow getting/setting for the level grid using [q,r,h]
@@ -238,6 +240,8 @@ public class AIController : MonoBehaviour {
 			switch (pathGrid [q, r, h].enemyType) {
 			case (eType.BASIC_ENEMY):
 				return basicEnemyPrefab;
+			case (eType.TURTLE_ENEMY):
+				return turtleEnemyPrefab;
 			default:
 				return null;
 			}

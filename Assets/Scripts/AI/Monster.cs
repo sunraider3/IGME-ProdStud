@@ -20,7 +20,7 @@ public class Monster : MonoBehaviour {
     int[] curCell = null, playerCell = new int[] { 0, 0, 0 };
 
 	//Type of monster
-	eType enemyType = eType.BASIC_ENEMY;
+	public eType enemyType = eType.BASIC_ENEMY;
 
     //Getter for the current cell
     public int[] CurrentCell
@@ -120,7 +120,8 @@ public class Monster : MonoBehaviour {
         pathToPlayer = null;
         //Update the AI controller to show an enemy is standing on the tile
         curCell = HexConst.CoordToHexIndex(transform.position - new Vector3(0, 0.8f, 0));
-        aiController[curCell[0], curCell[1], curCell[2]].hasEnemy = true;
+		aiController[curCell[0], curCell[1], curCell[2]].hasEnemy = true;
+		aiController[curCell[0], curCell[1], curCell[2]].enemyType = enemyType;
         return true;
     }
 
